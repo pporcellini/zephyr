@@ -22,7 +22,7 @@ manifest:
     - name: upstream
       url-base: https://github.com/zephyrproject-rtos
     - name: openamp
-      url-base: https://github.com/openamp
+      url-base: https://github.com/pporcellini
 
   #
   # Please add items below based on alphabetical order
@@ -153,7 +153,7 @@ manifest:
         - hal
     - name: libmetal
       remote: openamp
-      revision: virtio-exp
+      revision: demo-2022-12
       path: modules/hal/libmetal
       groups:
         - hal
@@ -200,7 +200,7 @@ manifest:
       path: modules/bsim_hw_models/nrf_hw_models
     - name: open-amp
       remote: openamp
-      revision: virtio-exp
+      revision: demo-2022-12
       path: modules/lib/open-amp
     - name: openthread
       revision: bacf8d625f50dd5c4b415caee754c934ba1a262c
