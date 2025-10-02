@@ -31,7 +31,11 @@ static int random_entropy(const struct device *dev, char *buffer, char num)
 	 * outside the passed buffer, and that should never
 	 * happen.
 	 */
+	int64_t start_time = k_uptime_get();
 	ret = entropy_get_entropy(dev, buffer, BUFFER_LENGTH - 1);
+	int64_t end_time = k_uptime_get();
+	int64_t delta_time = end_time - start_time;
+	printk ("Elapsed time for entropy: %lld ms\n", delta_time);
 	if (ret) {
 		printk("Error: entropy_get_entropy failed: %d\n", ret);
 		return -1;
