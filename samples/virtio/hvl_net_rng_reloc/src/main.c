@@ -32,10 +32,14 @@ static int random_entropy(const struct device *dev, char *buffer, char num)
 	 * happen.
 	 */
 	int64_t start_time = k_uptime_get();
+	uint32_t start_cycle = k_cycle_get_32();
 	ret = entropy_get_entropy(dev, buffer, BUFFER_LENGTH - 1);
 	int64_t end_time = k_uptime_get();
+	uint32_t end_cycle = k_cycle_get_32();
 	int64_t delta_time = end_time - start_time;
+	uint32_t delta_cycle = end_cycle - start_cycle;
 	printk ("Elapsed time for entropy: %lld ms\n", delta_time);
+	printk ("Elapsed clock cycles for entropy: %u clk\n", delta_cycle);
 	if (ret) {
 		printk("Error: entropy_get_entropy failed: %d\n", ret);
 		return -1;
