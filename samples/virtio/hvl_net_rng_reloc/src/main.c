@@ -31,7 +31,7 @@ static int random_entropy(const struct device *dev, char *buffer, char num)
 	 * outside the passed buffer, and that should never
 	 * happen.
 	 */
-	for (int k = 0; k < 100; k++){
+	for (int k = 0; k < 5; k++){
 	int64_t start_time = k_uptime_get();
 	uint32_t start_cycle = k_cycle_get_32();
 	ret = entropy_get_entropy(dev, buffer, BUFFER_LENGTH - 1);
